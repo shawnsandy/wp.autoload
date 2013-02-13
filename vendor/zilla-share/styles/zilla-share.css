@@ -1,0 +1,41 @@
+.zilla-share { margin: 1em 0; }
+
+.zilla-blog-widget .zilla-share,
+.tz_recentwork_widget .zilla-share,
+.tz_blog_widget .zilla-share,
+.home div#the_body #slider .excerpt .zilla-share { display: none; } /* Hide Zilla Share in custom post widget and sliders in themes */
+
+.zilla-share iframe {
+    display: inline;
+    float: none;
+	max-width: 100%;
+	margin: 0;
+}
+
+.zilla-share > .twitter-count-horizontal { width: 95px !important; }
+
+.zilla-share .twitter-count-vertical { margin-right: 10px; }
+
+.zilla-share > div { width: 88px !important; }
+
+.zilla-share > div.fb_edge_widget_with_comment { 
+    top: -3px; 
+    width: 90px !important;
+}
+
+.zilla-share div[data-action="recommend"] { width: auto !important; } /* FB recommend */
+
+.zilla-share p,
+.zilla-share span {
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+
+.zilla-share br { display: none; }
+
+.zilla-share p.zilla-text {
+	display: block;
+	margin-bottom: 1em;
+	font-weight: bold;
+}

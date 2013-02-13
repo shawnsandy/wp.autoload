@@ -1,0 +1,22 @@
+/*
+Document   : image
+Created on : Aug 6, 2011, 5:08:46 PM
+Author     : Studio365
+Description:
+Purpose of the stylesheet follows.
+*/
+IMG
+{
+	max-width: 100%;
+/*ie8*/
+}
+.video EMBED, .video OBJECT, .video IFRAME
+{
+	width: 100%;
+	height: auto;
+}
+.clear
+{
+	clear: both;
+	visibility: hidden;
+}

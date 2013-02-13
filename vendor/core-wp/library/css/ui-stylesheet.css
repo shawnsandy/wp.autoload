@@ -1,0 +1,456 @@
+/*
+    Document   : ui-stylesheet
+    Created on : Nov 2, 2011, 12:16:21 AM
+    Author     : Studio365
+    Description:
+
+*/
+
+/* Universal Button Styles
+**********************************************************************************************/
+.ui{
+
+}
+
+/* button
+---------------------------------------------- */
+.ui.btns {
+    /*	display: inline-block;*/
+    zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
+    *display: inline; vertical-align: baseline; margin: 0 2px; outline: none;
+    cursor: pointer;text-align: center;text-decoration: none;font: 14px/100% Arial, Helvetica, sans-serif;
+    padding: .5em 2em .55em;  text-shadow: 0 1px 1px rgba(0,0,0,.3);
+        /*	-webkit-border-radius: .5em;
+            -moz-border-radius: .5em;
+            border-radius: .5em;*/
+    -webkit-box-shadow: 0 0px 0px rgba(0,0,0,.2);    -moz-box-shadow: 0 0px 0px rgba(0,0,0,.2);    box-shadow: 0 0px 0px rgba(0,0,0,.2);
+}
+.ui.btns:hover {
+    text-decoration: none;
+
+}
+.ui.btns:active {
+    position: relative;
+    top: 1px;
+}
+
+.ui.bigrounded {
+    -webkit-border-radius: 2em;    -moz-border-radius: 2em;    border-radius: 2em;}
+.ui.medium {
+    font-size: 12px;    padding: .4em 1.5em .42em;}
+.ui.small {
+    font-size: 11px;    padding: .2em 1em .275em;
+}
+
+/* color styles
+---------------------------------------------- */
+
+/* black */
+.ui.black {
+    color: #d7d7d7;
+    border: solid 1px #333;
+    background: #333;
+    background: -webkit-gradient(linear, left top, left bottom, from(#666), to(#000));
+    background: -moz-linear-gradient(top,  #666,  #000);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#666666', endColorstr='#000000');
+}
+.ui.black:hover {
+    background: #000;
+    background: -webkit-gradient(linear, left top, left bottom, from(#444), to(#000));
+    background: -moz-linear-gradient(top,  #444,  #000);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#444444', endColorstr='#000000');
+}
+.ui.black:active {
+    color: #666;
+    background: -webkit-gradient(linear, left top, left bottom, from(#000), to(#444));
+    background: -moz-linear-gradient(top,  #000,  #444);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#666666');
+}
+
+/* gray */
+.ui.gray {
+    color: #e9e9e9;
+    border: solid 1px #555;
+    background: #6e6e6e;
+    background: -webkit-gradient(linear, left top, left bottom, from(#888), to(#575757));
+    background: -moz-linear-gradient(top,  #888,  #575757);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#888888', endColorstr='#575757');
+}
+.ui.gray:hover {
+    background: #616161;
+    background: -webkit-gradient(linear, left top, left bottom, from(#757575), to(#4b4b4b));
+    background: -moz-linear-gradient(top,  #757575,  #4b4b4b);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#757575', endColorstr='#4b4b4b');
+}
+.ui.gray:active {
+    color: #afafaf;
+    background: -webkit-gradient(linear, left top, left bottom, from(#575757), to(#888));
+    background: -moz-linear-gradient(top,  #575757,  #888);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#575757', endColorstr='#888888');
+}
+
+/* white */
+.ui.white {
+    color: #606060;    border: solid 1px #b7b7b7;    background: #fff;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
+    background: -moz-linear-gradient(top,  #fff,  #ededed);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed');
+}
+.ui.white:hover {
+    background: #ededed;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#dcdcdc));
+    background: -moz-linear-gradient(top,  #fff,  #dcdcdc);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dcdcdc');
+}
+.ui.white:active {
+    color: #999;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#fff));
+    background: -moz-linear-gradient(top,  #ededed,  #fff);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#ffffff');
+}
+
+/* orange */
+.ui.orange {
+    color: #fef4e9;    border: solid 1px #da7c0c;    background: #f78d1d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
+    background: -moz-linear-gradient(top,  #faa51a,  #f47a20);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
+}
+.ui.orange:hover {
+    background: #f47c20;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));
+    background: -moz-linear-gradient(top,  #f88e11,  #f06015);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f88e11', endColorstr='#f06015');
+}
+.ui.orange:active {
+    color: #fcd3a5;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f47a20), to(#faa51a));
+    background: -moz-linear-gradient(top,  #f47a20,  #faa51a);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f47a20', endColorstr='#faa51a');
+}
+
+/* red */
+.ui.red {
+    color: #faddde;    border: solid 1px #980c10;    background: #d81b21;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ed1c24), to(#aa1317));
+    background: -moz-linear-gradient(top,  #ed1c24,  #aa1317);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ed1c24', endColorstr='#aa1317');
+}
+.ui.red:hover {
+    background: #b61318;
+    background: -webkit-gradient(linear, left top, left bottom, from(#c9151b), to(#a11115));
+    background: -moz-linear-gradient(top,  #c9151b,  #a11115);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#c9151b', endColorstr='#a11115');
+}
+.ui.red:active {
+    color: #de898c;
+    background: -webkit-gradient(linear, left top, left bottom, from(#aa1317), to(#ed1c24));
+    background: -moz-linear-gradient(top,  #aa1317,  #ed1c24);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#aa1317', endColorstr='#ed1c24');
+}
+
+/* blue */
+.ui.blue {
+    color: #d9eef7;    border: solid 1px #0076a3;    background: #0095cd;
+    background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+    background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#00adee', endColorstr='#0078a5');
+}
+.ui.blue:hover {
+    background: #007ead;
+    background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+    background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#0095cc', endColorstr='#00678e');
+}
+.ui.blue:active {
+    color: #80bed6;
+    background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00adee));
+    background: -moz-linear-gradient(top,  #0078a5,  #00adee);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#0078a5', endColorstr='#00adee');
+}
+
+/* rosy */
+.ui.rosy {
+    color: #fae7e9;    border: solid 1px #b73948;    background: #da5867;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f16c7c), to(#bf404f));
+    background: -moz-linear-gradient(top,  #f16c7c,  #bf404f);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f16c7c', endColorstr='#bf404f');
+}
+.ui.rosy:hover {
+    background: #ba4b58;
+    background: -webkit-gradient(linear, left top, left bottom, from(#cf5d6a), to(#a53845));
+    background: -moz-linear-gradient(top,  #cf5d6a,  #a53845);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#cf5d6a', endColorstr='#a53845');
+}
+.ui.rosy:active {
+    color: #dca4ab;
+    background: -webkit-gradient(linear, left top, left bottom, from(#bf404f), to(#f16c7c));
+    background: -moz-linear-gradient(top,  #bf404f,  #f16c7c);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#bf404f', endColorstr='#f16c7c');
+}
+
+/* green */
+.ui.green {
+    color: #e8f0de;    border: solid 1px #538312;    background: #64991e;
+    background: -webkit-gradient(linear, left top, left bottom, from(#7db72f), to(#4e7d0e));
+    background: -moz-linear-gradient(top,  #7db72f,  #4e7d0e);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#7db72f', endColorstr='#4e7d0e');
+}
+.ui.green:hover {
+    background: #538018;
+    background: -webkit-gradient(linear, left top, left bottom, from(#6b9d28), to(#436b0c));
+    background: -moz-linear-gradient(top,  #6b9d28,  #436b0c);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#6b9d28', endColorstr='#436b0c');
+}
+.ui.green:active {
+    color: #a9c08c;
+    background: -webkit-gradient(linear, left top, left bottom, from(#4e7d0e), to(#7db72f));
+    background: -moz-linear-gradient(top,  #4e7d0e,  #7db72f);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#4e7d0e', endColorstr='#7db72f');
+}
+
+/* pink */
+.ui.pink {
+    color: #feeef5;    border: solid 1px #d2729e;    background: #f895c2;
+    background: -webkit-gradient(linear, left top, left bottom, from(#feb1d3), to(#f171ab));
+    background: -moz-linear-gradient(top,  #feb1d3,  #f171ab);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#feb1d3', endColorstr='#f171ab');
+}
+.ui.pink:hover {
+    background: #d57ea5;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f4aacb), to(#e86ca4));
+    background: -moz-linear-gradient(top,  #f4aacb,  #e86ca4);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4aacb', endColorstr='#e86ca4');
+}
+.ui.pink:active {
+    color: #f3c3d9;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f171ab), to(#feb1d3));
+    background: -moz-linear-gradient(top,  #f171ab,  #feb1d3);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f171ab', endColorstr='#feb1d3');
+}
+
+/* grads ****************************************/
+
+
+.ui.text-shadow {
+    text-shadow: 2px 2px 4px #666;
+}
+
+.ui.float-top {
+        z-index:  9999;	position: fixed;	width: 100%;	top: 0;
+}
+
+/*LIST - MENU *********************************/
+
+
+.ui.menu
+{
+    /*set to the height you want your menu to be*/
+    min-height: 40px;    height: 40px;
+    /*just to give some spacing*/
+    z-index: 999;    border: #cccccc solid 1px ;
+    margin-top: 20px;    margin-bottom: 20px;    display: block ;
+}
+
+.ui.menu UL
+{
+    margin: 0;    padding: 0;    /*only needed if you have not done a CSS reset*/
+    z-index: 999;    margin: 0;
+
+
+}
+
+.ui.menu LI
+{
+    display: block;
+    float: left;
+    /*	line-height: 20px;*/
+    min-height: 20px;
+    /*this should be the same as your .hr-menu height*/
+    min-height: 40px;
+    /*this should be the same as your .hr-menu height*/
+    margin: 0;
+    padding: 0;
+    /*only needed if you don't have a reset*/
+    position: relative;
+    /*this is needed in order to position sub menus*/
+    font-size: 14px;
+}
+.ui.menu LI A, .ui.menu LI A:visited
+{
+    display: block;    height: 40px;    line-height: 40px;    padding: 0 10px;    color: #7A7A7A;
+    text-transform: uppercase;    margin-bottom: 0;
+     /*[disabled]font-family:BebasNeueRegular, "Myriad Web Pro", Arial, "Myriad Web Pro", sans-serif;*/
+    font-weight: normal;    text-indent: 0;
+    /*[disabled]background-image:url(images/plus.png);*/
+    /*[disabled]background-repeat:no-repeat;*/
+    background-position: center left;    border-bottom: none;
+
+}
+
+.ui.menu > ul > li > a:after {
+    content: " ";
+
+}
+
+.ui.menu >  ul > li {
+    border-right: #cccccc solid 1px;    padding-left: 20px;    padding-right: 20px;
+
+}
+
+.ui.menu >  ul > li > A {
+   display: block;
+
+
+}
+
+.ui.menu UL LI A:active
+{
+    text-decoration: none;    border-bottom: none;
+}
+.ui.menu UL LI A:hover
+{
+    /*[disabled]background-color:#8E8E8E;*/
+    border-bottom: none;
+}
+.ui.menu .current-menu-item A, .ui.menu .current_page_item A, .ui.menu A:hover
+{
+    color: #CCCCCC;
+    /*[disabled]background:#CCC;*/
+    border-bottom: none;
+}
+.ui.menu UL UL
+{
+    /*this targets all sub menus*/
+    display: none;
+    /*hide all sub menus from view*/
+    position: absolute;
+    /*this should be the same height as the top level menu -- height + padding + borders*/
+    border: 1px solid #c5c5c5;    margin-left: 0;    top: 39px;    left: 0px;    background-color: white;
+}
+
+.ui.menu UL UL LI
+{
+    /*this targets all submenu items*/
+    float: none;
+    /*overwriting our float up above*/
+    min-width: 200px;
+    /*set to the width you want your sub menus to be. This needs to match the value we set below*/
+    /*[disabled]background-color:#111111;*/
+    /*	border-bottom: 1px solid #161616;*/
+    /*[disabled]background-image:url(images/blk-40.png);*/
+
+}
+
+.ui.menu UL UL LI A
+{
+    /*target all sub menu item links*/
+    padding: 0 10px 0px;
+    /*give our sub menu links a nice button feel*/
+    color: #5E5E5E;
+    text-indent: 0;
+    background-image: none;
+}
+.ui.menu UL LI:hover>UL
+{
+    display: block;
+
+    /*show sub menus when hovering over a parent*/
+}
+.ui.menu .sub-menu LI:hover
+{
+    /*	background-color: #080808;*/
+    border: none;
+    /*	border-bottom: 1px solid #161616;*/
+}
+.ui.menu UL UL LI UL
+{
+    /*target all second, third, and deeper level sub menus*/
+    left: 100px;
+    /*this needs to match the sub menu width set above -- width + padding + borders*/
+    top: 20px;
+    /*this ensures the sub menu starts in line with its parent item*/
+    width: 100%;
+}
+.ui.menu UL>LI
+{
+    background-image: none;
+}
+
+.ui.box{
+    padding: 20px;    min-width: 250px;
+}
+
+/** nav */
+
+.ui.box.mediun {
+    min-width: 400px;
+}
+/** nav */
+
+.ui.box.large {
+    min-width: 600px;
+}
+
+/*SIZES*/
+
+.font-huge{ font-size: 130px; font-size: 10.3rem; }
+.font-xxlarge{ font-size: 100px; font-size: 10rem; }
+.font-larger{ font-size: 72px; font-size: 7.2rem; }
+.font-large{ font-size: 48px; font-size: 4.8rem; }
+.font-smedium{ font-size: 22px; font-size: 2.2rem; }
+.font-small{ font-size: 11px; font-size: 1.1rem; }
+.font-tiny{ font-size: 8px; font-size: .8rem; }
+
+.fluid-img img{ top: 0;eft: 0;idth: 100%;ax-width: 980px;eight: auto;osition: absolute;}
+
+.hide-element{position: absolute !important; clip: rect(1px 1px 1px 1px); /* IE6, IE7 */ clip: rect(1px, 1px, 1px, 1px);}
+
+
+.pictograms {
+    font-family: 'ModernPictogramsNormal', Arial, sans-serif;
+    letter-spacing: 0;    font-weight: normal;    font-style: normal;
+}
+
+.pictograms.x-solid-after:after{content: "x";}  .pictograms.x-solid-before:before{content: "x";}
+.pictograms.x-after:after{content: "X";}  .pictograms.x-before:before{content: "X";}
+.pictograms.fb-solid-after:after{content: "G";}  .pictograms.fb-solid-before:before{content: "G";}
+.pictograms.fb-after:after{content: "F";}  .pictograms.fb-before:before{content: "F";}
+.pictograms.tweet-solid-after:after{content: "U";}  .pictograms.tweet-solid-before:before{content: "U";}
+.pictograms.tweet-after:after{content: "T";}  .pictograms.tweet-before:before{content: "T";}
+.pictograms.t-bird-after:after{content: "t";}  .pictograms.t-bird-before:before{content: "t";}
+.pictograms.comment-after:after{content: "b";}  .pictograms.comment-before:before{content: "b";}
+.pictograms.comment-after:after{content: "b";}  .pictograms.comment-before:before{content: "b";}
+.pictograms.spkr2-after:after{content: "2";}  .pictograms.spkr2-before:before{content: "2";}
+.pictograms.spkr-after:after{content: "1";}  .pictograms.spkr-before:before{content: "1";}
+.pictograms.spkr-mute-after:after{content: "0";}  .pictograms.spkr-mute-before:before{content: "0";}
+.pictograms.mail-after:after{content: "m";}  .pictograms.mail-before:before{content: "m";}
+.pictograms.news-after:after{content: "a";}  .pictograms.news-before:before{content: "a";}
+.pictograms.prev-after:after{content: "<";}  .pictograms.prev-before:before{content: "<";}
+.pictograms.next-after:after{content: ">";}  .pictograms.next-before:before{content: ">";}
+.pictograms.top-after:after{content: "-";}  .pictograms.top-before:before{content: "-";}
+.pictograms.bottom-after:after{content: "/";}  .pictograms.bottom-before:before{content: "/";}
+.pictograms.reload-after:after{content: "R";}  .pictograms.reload-before:before{content: "R";}
+.pictograms.rss-after:after{content: "^";}  .pictograms.rss-before:before{content: "^";}
+.pictograms.download-after:after{content: "D";}  .pictograms.download-before:before{content: "D";}
+.pictograms.print-after:after{content: "d";}  .pictograms.print-before:before{content: "d";}
+.pictograms.lock-after:after{content: "n";}  .pictograms.lock-before:before{content: "n";}
+.pictograms.lock-open-after:after{content: "q";}  .pictograms.lock-open-before:before{content: "q";}
+.pictograms.cart-after:after{content: "i";}  .pictograms.cart-before:before{content: "i";}
+.pictograms.search-after:after{content: "s";}  .pictograms.search-before:before{content: "s";}
+.pictograms.plus-after:after{content: "+";}  .pictograms.plus-before:before{content: "+";}
+.pictograms.caution-after:after{content: "!";}  .pictograms.caution-before:before{content: "!";}
+.pictograms.mobile-after:after{content: "Q";}  .pictograms.cmobile-before:before{content: "Q";}
+.pictograms.tag-after:after{content: "J";}  .pictograms.tag-before:before{content: "J";}
+.pictograms.eye-after:after{content: "E";}  .pictograms.eye-before:before{content: "E";}
+.pictograms.colon-after:after{content: ":";}  .pictograms.colon-before:before{content: ":";}
+.pictograms.question-after:after{content: "?";}  .pictograms.question-before:before{content: "?";}
+.pictograms.info-after:after{content: "=";}  .pictograms.info-before:before{content: "=";}
+.pictograms.time-after:after{content: "}";}  .pictograms.time-before:before{content: "}";}
+.pictograms.signal-after:after{content: "`";}  .pictograms.signal-before:before{content: "`";}
+
+.social-icons {font-family: 'SocialicoRegular'; font-style: normal; font-weight: normal ; }
+.social-icons.medium {font-size: 48px; font-size: 4.8rem}
+
+.novecentowide {font-family: 'Novecentowide'; font-weight: bold; font-style: normal; line-height: 1.4;}
+

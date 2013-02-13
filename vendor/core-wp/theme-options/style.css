@@ -1,0 +1,18 @@
+/*
+Theme Name: A Theme Options Theme
+Theme URI: http://themeshaper.com/sample-theme-options/
+Description: A Twenty Ten child theme for demonstrating a sample theme-options.php
+Author: The Automattic Theme Team
+Version: 1.1
+Template: twentyten
+Tags:
+*/
+
+@import url(../twentyten/style.css);
+
+body {
+	background: pink;
+}
+#site-title a {
+	color: pink;
+}

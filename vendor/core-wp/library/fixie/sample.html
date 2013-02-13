@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fixie.js Sample</title>
+
+	<style>
+		body{
+			font-family: Helvetica, arial, sans-serif;
+			width:800px;
+			margin:150px auto;
+		}
+		img{
+			width:400px;
+			height:300px;
+			float:right;
+			margin:20px;
+		}
+	</style>
+
+</head>
+<body>
+	<article>
+		<h1 class="fixie"></h1>
+		<p> Check us out at <a class="fixie"></a>,
+			and don't forget to view source.</p>
+		<section class="fixie">
+			<p></p>
+			<img/>
+			<ul></ul>
+			<p></p>
+			<ol></ol>
+		</section>
+		<h2 class="fixie"></h2>
+		<section class="fixie"></section>
+	</article>
+
+	<script type="text/javascript" src="fixie.js"></script>
+	<script>
+		// Changes default image source to Flickr
+		fixie.setImagePlaceholder('http://flickholdr.com/${w}/${h}/fixie').init();
+	</script>
+</body>
+</html>

@@ -1,0 +1,482 @@
+/*
+    Document   : theme-style
+    Created on : Dec 23, 2011, 7:15:28 PM
+    Author     : Studio365
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.clear
+{
+	visibility: hidden;
+	display: none;
+}
+
+.tiny, H3.tiny
+{
+	font-size: 1em;
+	font-style: italic;
+	color: #C3C3C3;
+}
+H3 SPAN.tiny
+{
+}
+.row
+{
+	max-width: 980px;
+}
+/*BASE****************************************/
+BODY
+{
+	/*[disabled]background-image:url(images/square_bg.png);*/
+	background-color: #FEFEFE;
+}
+H1, H2, H3, H4, H5
+{
+	font-weight: normal;
+	color: #A5A5A5;
+}
+A:link
+{
+	color: #3A3A3A;
+}
+A:visited
+{
+	color: #2F2F2F;
+}
+A:hover
+{
+	color: #205E8C;
+}
+H3 A
+{
+	font-family: BebasNeueRegular, "Myriad Web Pro", Arial, "Myriad Web Pro", sans-serif;
+}
+H3 A:link, H3 A:visited, H3 A:hover, H3 A:active
+{
+}
+H3 A:hover
+{
+	color: #111111;
+}
+P
+{
+	line-height: 1.6;
+}
+/*PAGE****************************************/
+#page
+{
+	/*[disabled]background-image:url(images/crafted-pressed-bg.jpg);*/
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-color: #FDFDFD;
+}
+/*NAV-TOP ************************************/
+NAV#top
+{
+	background-color: #111111;
+	/*[disabled]border-bottom:1px solid #FFFFFF;*/
+	padding: 0;
+	margin: 0;
+	/*[disabled]overflow:hidden;*/
+	/*[disabled]text-align:center;*/
+	height: 40px;
+}
+NAV#top LI
+{
+	/*[disabled]height:20px;*/
+}
+NAV#top A:hover
+{
+	color: #FFFFFF;
+}
+/*HEADER***************************************/
+#header
+{
+	padding-top: 20px;
+	text-align: left;
+	padding-bottom: 0;
+}
+#header .theme-nav
+{
+	margin-bottom: 0;
+	margin-top: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+	z-index: 999;
+}
+#header .theme-nav .nav-bar
+{
+	margin-top: 0;
+	z-index: 99999;
+}
+#header #site-title
+{
+	margin-bottom: 0;
+	margin-top: 0;
+}
+#header .social
+{
+	text-align: right;
+	padding-top: 15px;
+}
+/*LIST - MENU ********************************
+LIST - MENU *********************************/
+.hr-menu
+{
+	height: 20px;
+/*set to the height you want your menu to be*/
+	margin: 0 0 20px;
+/*just to give some spacing*/
+	z-index: 9999;
+	padding-left: 28px;
+}
+.hr-menu UL
+{
+	margin: 0;
+	padding: 0;
+/*only needed if you have not done a CSS reset*/
+	z-index: 999;
+}
+.hr-menu.menu-icon
+{
+	margin-bottom: 0px;
+	background-image: url(images/plus.png);
+	background-repeat: no-repeat;
+	background-position: center left;
+	height: 39px;
+}
+.hr-menu LI
+{
+	display: block;
+	float: left;
+	line-height: 20px;
+	height: 20px;
+/*this should be the same as your .hr-menu height*/
+	height: 40px;
+/*this should be the same as your .hr-menu height*/
+	margin: 0;
+	padding: 0;
+/*only needed if you don't have a reset*/
+	position: relative;
+/*this is needed in order to position sub menus*/
+}
+.hr-menu LI A, .hr-menu LI A:visited
+{
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 10px;
+	color: #7A7A7A;
+	text-transform: uppercase;
+	font-size: 12px;
+	margin-bottom: 0;
+	/*[disabled]font-family:BebasNeueRegular, "Myriad Web Pro", Arial, "Myriad Web Pro", sans-serif;*/
+	font-weight: bold;
+	text-indent: 0;
+	/*[disabled]background-image:url(images/plus.png);*/
+	/*[disabled]background-repeat:no-repeat;*/
+	background-position: center left;
+	border-bottom: none;
+}
+.hr-menu UL LI A:active
+{
+	text-decoration: none;
+	border-bottom: none;
+}
+.hr-menu UL LI A:hover
+{
+	/*[disabled]background-color:#8E8E8E;*/
+	border-bottom: none;
+}
+.hr-menu .current-menu-item A, .hr-menu .current_page_item A, .hr-menu A:hover
+{
+	color: #FFF;
+	/*[disabled]background:#CCC;*/
+	border-bottom: none;
+}
+.hr-menu UL UL
+{
+/*this targets all sub menus*/
+	display: none;
+/*hide all sub menus from view*/
+	position: absolute;
+	top: 40px;
+/*this should be the same height as the top level menu -- height + padding + borders*/
+	border: 1px solid #161616;
+}
+.hr-menu UL UL LI
+{
+/*this targets all submenu items*/
+	float: none;
+/*overwriting our float up above*/
+	width: 200px;
+/*set to the width you want your sub menus to be. This needs to match the value we set below*/
+	/*[disabled]background-color:#111111;*/
+	border-bottom: 1px solid #161616;
+	/*[disabled]background-image:url(images/blk-40.png);*/
+}
+.hr-menu UL UL LI A
+{
+/*target all sub menu item links*/
+	padding: 0 10px 5px;
+/*give our sub menu links a nice button feel*/
+	color: #5E5E5E;
+	text-indent: 0;
+	background-image: none;
+}
+.hr-menu UL LI:hover>UL
+{
+	display: block;
+/*show sub menus when hovering over a parent*/
+}
+.hr-menu .sub-menu LI:hover
+{
+	background-color: #080808;
+	border: none;
+	border-bottom: 1px solid #161616;
+}
+.hr-menu UL UL LI UL
+{
+/*target all second, third, and deeper level sub menus*/
+	left: 180px;
+/*this needs to match the sub menu width set above -- width + padding + borders*/
+	top: 20px;
+/*this ensures the sub menu starts in line with its parent item*/
+}
+.hr-menu UL>LI
+{
+	background-image: url(images/blk-90.png);
+}
+/*FEATURE*/
+#feature
+{
+	/*[disabled]background-color:#C3C3C3;*/
+	padding-top: 0;
+	padding-bottom: 0;
+}
+#feature .row
+{
+	margin-bottom: 0;
+}
+#feature .feature-image
+{
+	text-align: center;
+	margin-bottom: 0;
+	background-color: #CCCCCC;
+	height: 400px;
+	overflow: hidden;
+	background-image: url(images/bokeh.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+/*CONTENT**************************************/
+#content
+{
+	padding-top: 20px;
+	/*[disabled]background-image:url(images/square_bg.png);*/
+	background-color: transparent;
+	min-height: 600px;
+	padding-bottom: 20px;
+	margin-bottom: 0;
+}
+.home #content
+{
+	min-height: 300px;
+}
+/*ARTICLES*************************************/
+#articles
+{
+}
+#articles ARTICLE
+{
+	margin-bottom: 20px;
+}
+#articles H1
+{
+	font-size: 2.4em;
+	color: #3A3A3A;
+}
+#articles NAV
+{
+	margin-bottom: 20px;
+}
+#articles .nav-next
+{
+	text-align: right;
+}
+#articles H2
+{
+	font-size: 1.8em;
+}
+#articles #post-content P
+{
+	line-height: 1.5;
+	margin-bottom: 20px;
+}
+#articles #author-info
+{
+	margin-bottom: 20px;
+	padding: 10px;
+	border-bottom: 1px dotted #C3C3C3;
+	border-top: 1px dotted #C3C3C3;
+}
+#articles .entry-meta
+{
+	margin-bottom: 20px;
+	padding: 5px;
+}
+#articles H1
+{
+	font-size: 2.8em;
+	font-weight: bold;
+	border-bottom: 1px dotted #C3C3C3;
+	margin-bottom: 30px;
+}
+.single-cwp_theme SECTION
+{
+	margin-bottom: 40px;
+}
+.single-cwp_theme .row
+{
+	margin-bottom: 20px;
+}
+.single-cwp_theme .four.columns P
+{
+}
+#articles H1.page-title
+{
+	font-size: 1.2em;
+	font-family: "Myriad Web Pro", Arial;
+	text-align: right;
+	font-style: italic;
+	font-weight: normal;
+	border: none;
+}
+#articles H1.entry-title A:hover
+{
+	color: #7A7A7A;
+}
+/*COMMENTS***********************************/
+#comments
+{
+	padding: 10px;
+}
+#comments .commentlist LI
+{
+	list-style: none;
+}
+#comments .comment-author
+{
+	clear: both;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	border-top: 1px dotted #C3C3C3;
+	border-bottom: 1px dotted #C3C3C3;
+	height: 40px;
+	margin-bottom: 20px;
+}
+#comments IMG.avatar
+{
+	float: left;
+	margin-right: 10px;
+}
+#comments .bypostauthor .comment
+{
+	background-color: #EDEDED;
+	padding: 20px 10px;
+}
+#comments .bypostauthor .comment-author
+{
+	border: none;
+}
+#comments .comment
+{
+}
+#comments INPUT[type="text"], TEXTAREA
+{
+	padding: 5px;
+	margin-left: 10px;
+	border: 1px solid #C3C3C3;
+	display: block;
+	width: 400px;
+}
+#comments TEXTAREA
+{
+	margin-top: 10px;
+}
+/*SIDEBAR***************************************/
+#sidebar H3, #sidebar H1
+{
+	font-size: 1.9em;
+	color: #C3C3C3;
+	border-bottom: 1px dotted #C3C3C3;
+}
+#sidebar H3 A:hover, #sidebar H1 A:hover
+{
+	color: #3D3D3D;
+}
+#sidebar .widget
+{
+	margin-bottom: 20px;
+}
+/*pagination*/
+.pagination
+{
+	margin: 5px;
+	padding: 5px;
+}
+.pagination .current
+{
+	color: #DDDDDD;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+.pagination A
+{
+	background-color: #DDDDDD;
+	width: 0;
+	height: 20px;
+	margin: 0 10px 0 0;
+	padding: 5px;
+	border: 1px solid #A5A5A5;
+}
+.pagination LI
+{
+	padding: 5px;
+	background-color: #F9F9F9;
+}
+/*FOOTER***************************************/
+#footer
+{
+	padding-bottom: 40px;
+	padding-top: 40px;
+	background-repeat: no-repeat;
+	background-position: top center;
+	margin-bottom: 0;
+}
+#footer H3
+{
+	font-size: 1.8em;
+	color: #3D3D3D;
+}
+#footer UL
+{
+	margin-left: 0;
+	margin-bottom: 0;
+}
+#footer UL LI
+{
+	margin-bottom: 0;
+}
+#footer UL.vcard
+{
+	margin-bottom: 20px;
+}
+#footer #copright-info
+{
+	padding-top: 0;
+	text-align: center;
+}
+
