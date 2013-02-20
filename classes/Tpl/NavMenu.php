@@ -40,8 +40,8 @@ class TPL_NavMenu {
         return $this;
     }
 
-    public function set_walker($walker) {
-        $this->walker = $walker;
+    public function set_walker() {
+        $this->walker = new nav_walker();
         return $this;
     }
 
@@ -273,5 +273,5 @@ class nav_walker extends Walker_Nav_Menu {
         );
     }
 
-    
+
 }

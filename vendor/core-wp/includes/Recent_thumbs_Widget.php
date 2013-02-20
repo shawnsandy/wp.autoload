@@ -187,7 +187,9 @@ class Recent_thumbs_Widget extends WP_Widget {
 
 }
 
-
+/**
+ * 
+ */
 add_image_size('recent-thumb', 80, 80, true);
 add_image_size('recent-thumb-60', 60, 60, true);
 add_image_size('recent-thumb-48', 48, 48, true);

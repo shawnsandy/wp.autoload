@@ -99,8 +99,9 @@ class al_manager {
     }
 
     /**
-     *
-     * @param array $folder
+     * Add you class to the folder
+     * @param string $folder - $folder full path to your class folder
+     * @return \al_manager
      */
     public function add_class_folder($folder = null) {
         $fl = $this->get_class_folders();

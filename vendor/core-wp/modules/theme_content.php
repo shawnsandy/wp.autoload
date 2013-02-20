@@ -62,6 +62,7 @@ class theme_content {
         add_action('load-post.php', array('theme_content', 'folio_formats'));
         add_action('load-post-new.php', array('theme_content', 'folio_formats'));
 
+        if(class_exists('RW_Meta_Box')):
         //instatiate BJ_Metaboxes
         $details = BJ_METABOXES::factory();
         //create meta box fields
@@ -73,6 +74,7 @@ class theme_content {
         $details->set_metabox_fields($folio_fields);
         //create the metabox
         $details->add_metabox('bj_folio_meta','Item Details',array('cwp_portfolio'));
+        endif;
     }
 
     public function folio_formats() {

@@ -91,6 +91,7 @@ class bjc_branding {
             'default' => '',
         ));
 
+
         $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'bjc_logo', array(
                     'label' => 'Organization(s) Logo ',
                     'section' => 'header_image',

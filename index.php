@@ -2,9 +2,8 @@
 
 /*
 Plugin Name: WP.Autoload
-Plugin URI: http://craftedandpressed.com
-Description: A simple php autoload manager for wordpress, built with PHP-Autoload-Manager http://bashar.alfallouji.com/PHP-Autoload-Manager/. AL-Manager allows you to easily extend the power of WordPress using Object Oriented PHP; classes and libraries.
-Author: Shawn Sandy
+Plugin URI: http://autoloadmanager.shawnsandy.com
+Description: Easily extend the power of WordPress using PHP classes and libraries; reduce code repetition and easily add external packages to your WordPress projects!
 Author URI: http://shawnsandy.com
 Version: 1.1.2
 */

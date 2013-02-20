@@ -79,12 +79,15 @@ class wp_autoload {
     protected function get_path($path) {
 
         if (file_exists($path)):
-            require_once $path;
+            include_once $path;
         else :
             //echo $path;
         endif;
     }
 
+    /**
+     * Test function
+     */
     public static function hello() {
         echo "hello world";
     }
