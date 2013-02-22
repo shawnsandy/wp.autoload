@@ -64,7 +64,13 @@ class Admin_Pointers {
         return $factory;
     }
 
-    function add_pointer() {
+    function add_pointer($pointer_title = null, $pointer_content = null) {
+
+        if(isset($pointer_title))
+            $this->pointer_title = $pointer_title;
+
+        if(isset($pointer_content))
+            $this->pointer_content = $pointer_content;
 
         add_action('admin_enqueue_scripts', array($this, 'scripts'));
     }
