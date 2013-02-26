@@ -1,14 +1,14 @@
 <?php
-
-/*
-Plugin Name: CoreWP
-Plugin URI: http://crafetdandpressed.com
-Description: A toolkit for rapid Wordpress theme / plugin / app development.
-Version: 0.1.1 Beta
-Author: Shawn Sandy
-Author URI: http://shawnsandy.com
-License: GPL2
-*/
+//
+///*
+//Plugin Name: CoreWP
+//Plugin URI: http://crafetdandpressed.com
+//Description: A toolkit for rapid Wordpress theme / plugin / app development.
+//Version: 0.1.1 Beta
+//Author: Shawn Sandy
+//Author URI: http://shawnsandy.com
+//License: GPL2
+//*/
 
 /*  Copyright YEAR  PLUGIN_AUTHOR_NAME  (email : shawnsandy04@gmail.com)
 
