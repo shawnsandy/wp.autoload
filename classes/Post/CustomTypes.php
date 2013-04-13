@@ -25,7 +25,7 @@ class Post_CustomTypes {
     private $query_var = true;
     private $rewrite = true;
     private $capabilities = null;
-    private $capability_type = 'post';
+    private $capability_type = null;
     private $has_archive = true;
     private $hierarchical = false;
     private $menu_postion = 5;
@@ -370,6 +370,7 @@ class Post_CustomTypes {
         $args['show_in_menu'] = $this->show_in_menu;
         $args['query_var'] = $this->query_var;
         $args['rewrite'] = $this->rewrite;
+        if(isset($this->capability_type))
         $args['capability_type'] = $this->capability_type;
         $args['has_archive'] = $this->has_archive;
         $args['hierarchical'] = $this->hierarchical;
@@ -383,9 +384,10 @@ class Post_CustomTypes {
         if(isset($this->menu_icon))
            $args['menu_icon'] = $this->menu_icon;
 
-        $capability_type = $this->post_type_name;
+        if(isset($this->capability_type))
+        $capability_type = $this->capability_type;
         //use the default by setting the capabilities using a boolean true;
-        if (!isset($this->capabilities) AND !is_array($this->capabilities)):
+        if (!isset($this->capabilities) && isset($this->capability_type)):
             //******************************************************************
             $caps['edit_post'] = "edit_{$capability_type}";
             $caps['read_post'] = "read_{$capability_type}";
@@ -407,6 +409,17 @@ class Post_CustomTypes {
         endif;
 
         register_post_type($this->get_post_type_name(), $args);
+        //$this->set_administrator($this->get_post_type_name());
+
+        $this->flush_rewrite($this->get_post_type_name());
+
+    }
+
+    public static function flush_rewrite($post_type){
+
+        $types = get_posts(array('post_type' => $post_type));
+        if(post_type_exists($post_type) && empty($types)) flush_rewrite_rules ();
+
     }
 
 
@@ -417,11 +430,11 @@ class Post_CustomTypes {
 
     public static function set_administrator($post_type_name) {
         /* Get the administrator role. */
+
         $role = & get_role('administrator');
 
         /* If the administrator role exists, add required capabilities for the plugin. */
         if (!empty($role)) {
-
             $role->add_cap("manage_{$post_type_name}s");
             $role->add_cap("edit_{$post_type_name}s");
         }
