@@ -29,7 +29,7 @@ class Post_CustomTypes {
     private $has_archive = true;
     private $hierarchical = false;
     private $menu_postion = 5;
-    private $supports = array('title', 'editor', 'author', 'thumbnail');
+    private $supports = array('title', 'editor', 'author', 'post-formats', 'thumbnail');
     private $help_tpl;
     private $exclude_from_search = false;
     private $menu_title;
@@ -288,7 +288,7 @@ class Post_CustomTypes {
     }
 
     public function category_tags_metabox() {
-        add_action('init', array($this, '_category_tags_metabox'));
+       // add_action('init', array($this, '_category_tags_metabox'));
     }
 
     public function _category_tags_metabox() {
@@ -363,6 +363,7 @@ class Post_CustomTypes {
             $this->display_labels = $labels;
         endif;
 
+        $args = array();
         $args['labels'] = $this->display_labels;
         $args['public'] = $this->public;
         $args['pulicly_queryable'] = $this->publicly_queryable;
@@ -370,8 +371,6 @@ class Post_CustomTypes {
         $args['show_in_menu'] = $this->show_in_menu;
         $args['query_var'] = $this->query_var;
         $args['rewrite'] = $this->rewrite;
-        if(isset($this->capability_type))
-        $args['capability_type'] = $this->capability_type;
         $args['has_archive'] = $this->has_archive;
         $args['hierarchical'] = $this->hierarchical;
         $args['menu_position'] = $this->menu_postion;
@@ -380,7 +379,6 @@ class Post_CustomTypes {
         $args['supports'] = $this->supports;
         $args['taxonomies'] = $this->taxonomies;
         $args['meta_cap'] = $this->map_meta_cap;
-
         if(isset($this->menu_icon))
            $args['menu_icon'] = $this->menu_icon;
 
@@ -408,10 +406,10 @@ class Post_CustomTypes {
             $args['capabilities'] = $caps;
         endif;
 
-        register_post_type($this->get_post_type_name(), $args);
+        register_post_type($this->post_type_name, $args);
         //$this->set_administrator($this->get_post_type_name());
 
-        $this->flush_rewrite($this->get_post_type_name());
+       // $this->flush_rewrite($this->get_post_type_name());
 
     }
 
@@ -441,7 +439,7 @@ class Post_CustomTypes {
     }
 
     /**
-     * *************************POST FORMATS***********************************
+     * *************************POST FORMATS*****************************
      *
      */
 
@@ -460,7 +458,7 @@ class Post_CustomTypes {
         return $this;
     }
 
-    /**
+  /**
      * ************************MESSAGE*****************************************
      */
 }
