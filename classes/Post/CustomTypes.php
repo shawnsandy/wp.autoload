@@ -311,7 +311,7 @@ class Post_CustomTypes {
      *
      * @param string $menu_title the Menu / Items title
      * @param string $supports - post type suppoer, title, editor, thumbnail
-     * @param string $wp_taxonomies - add support for wordpress default categories and tags meta box
+     * @param string $wp_taxonomies - add support for wordpress default categories and tags meta box (defaults true)
      */
     public function register_post_type($menu_title,$supports= NULL,$wp_taxonomies = TRUE){
 
@@ -321,7 +321,7 @@ class Post_CustomTypes {
 
         //$this->menu_postion = $menu_position;
 
-        if(!isset($supports))
+        if(isset($supports))
             $this->supports = $supports ;
 
         if($wp_taxonomies)
@@ -376,7 +376,7 @@ class Post_CustomTypes {
         $args['menu_position'] = $this->menu_postion;
         $args['show_in_menu'] = $this->show_in_menu;
         $args['show_in_nav_menus'] = $this->show_in_nav_menus;
-        $args['supports'] = $this->supports;
+        $args['supports'] = array('title', 'editor', 'author', 'thumbnail');
         $args['taxonomies'] = $this->taxonomies;
         $args['meta_cap'] = $this->map_meta_cap;
         if(isset($this->menu_icon))
@@ -409,7 +409,7 @@ class Post_CustomTypes {
         register_post_type($this->post_type_name, $args);
         //$this->set_administrator($this->get_post_type_name());
 
-       // $this->flush_rewrite($this->get_post_type_name());
+        $this->flush_rewrite($this->get_post_type_name());
 
     }
 
