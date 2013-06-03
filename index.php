@@ -5,12 +5,9 @@ Plugin Name: WP.Autoload
 Plugin URI: http://autoloadmanager.shawnsandy.com
 Description: Easily extend the power of WordPress using PHP classes and libraries; reduce code repetition and easily add external packages to your WordPress projects!
 Author URI: http://shawnsandy.com
-Version: 1.1.2
+Version: 2.0 Beta
 */
 
-/*
- * Include al_manager class
- */
 include_once dirname(__FILE__) .'/al_manager.php' ;
 
 /*
@@ -36,6 +33,7 @@ function alm_init(){
     $almmanager->del_folders_filter();
     $almmanager->clean_options();
     wp_autoload::factory()->load();
+
 }
 
 /**

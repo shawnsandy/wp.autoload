@@ -33,9 +33,10 @@ jQuery(document).ready(function($) {
 		min: 400,
 		fadeSpeed: 500
 	});
-	//smoothscroll
-	$('#top-link').click(function(e) {
-		e.preventDefault();
-		$.scrollTo(0,300);
-	});
+	// //smoothscroll
+	// $('#top-link').click(function(e) {
+	// 	//e.preventDefault();
+	// 	//$.scrollTo(0,300);
+	// });
+	
 });

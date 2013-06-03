@@ -18,6 +18,59 @@ class bj_layout {
         return self::$base_tpl;
     }
 
+    public static function post_type_templates($template) {
+
+        /** access gobal */
+        global $post;
+
+        /** get the post type */
+        $post_type = get_post_type($post->ID);
+
+        /** get the custom types */
+        $custom_types = get_post_types(array('public' => TRUE,
+            '_builtin' => false));
+
+        /** if post type archive template name is post_type */
+        if (is_post_type_archive()) {
+
+            $located = locate_template(array($post_type.'.php'));
+
+            if(!empty($located))
+                $template = get_query_template($post_type);
+
+        }
+
+        return $template;
+
+    }
+
+    public static function single_post_type_templates($template) {
+
+        /** access gobal */
+        global $post;
+        /** get the post type */
+        $post_type = get_post_type($post->ID);
+        /** get the custom types */
+        $custom_types = get_post_types(array('public' => TRUE,
+            '_builtin' => false));
+
+        if (is_single() && in_array($post_type, $custom_types)) {
+
+            $obj = get_post_type_object($post_type);
+
+            $template_name = strtolower($obj->labels->singular_name);
+
+            $located = locate_template(array($template_name.'.php'));
+
+            if(!empty($located))
+            $template = get_query_template($template_name);
+
+        }
+
+        return $template;
+
+    }
+
     /**
      * use other tpl
      * @param type $name
@@ -48,19 +101,22 @@ class bj_layout {
             return;
         endif;
         include $tpl;
-
     }
 
     public static function content() {
         return self::$main_tpl;
     }
 
-
     public static function mobile_page() {
 
     }
 
+    /**
+     *
+     * @param type $template
+     */
     public static function tpl_include($template) {
+
 
         //checks to see if mobile template is available
         //searches the stylesheet directory for the mobile template only allows easy disable.
@@ -68,21 +124,17 @@ class bj_layout {
         if (file_exists(get_stylesheet_directory() . '/mobile.php') or file_exists(get_template_directory() . '/mobile.php')):
             $mobile_themes = true;
         endif;
+
         //checks to see if mobile-phone tempalte is available
         $mobile_phone_themes = false;
         if (file_exists(get_stylesheet_directory() . '/mobile-phone.php') or file_exists(get_template_directory() . '/mobile-phone.php')):
             $mobile_phone_themes = true;
         endif;
 
-        if (cwp::theme_settings('offline') == 1 and !current_user_can('manage_options'))
-            self::$main_tpl = get_stylesheet_directory() . '/offline.php';
-        elseif (mod_mobile::detect()->isMobile())
-            self::$main_tpl = $template; //@todo write a function replace with mobile, phone, tablet tpl
-        else
-            self::$main_tpl = $template;
+
+        self::$main_tpl = $template;
 
         self::$base_tpl = substr(basename(self::$main_tpl), 0, -4);
-
         if ('index' == self::$base_tpl)
             self::$base_tpl = false;
 
@@ -97,28 +149,23 @@ class bj_layout {
             /*
              * theme/tpl/layout/file.php -  theme/tpl/index.php
              */
-            $templates = array('tpl/mobile/mobile.php', 'tpl/themes/tpl-index.php', 'tpl/layout/tpl-index.php',);
+            $templates = array('tpl/mobile/mobile.php');
             if (self::$base_tpl) {
-                //default themes if not found
-//                array_unshift($templates, sprintf('tpl/layout/tpl-%s.php', self::$base_tpl));
-//                array_unshift($templates, sprintf('tpl/themes/tpl-%s.php', self::$base_tpl));
-                //twitter bootstrap themes
-                array_unshift($templates, sprintf('tpl/mobile/tpl-mobile-%s.php', self::$base_tpl));
+
+                array_unshift($templates, sprintf('tpl/mobile/mobile-%s.php', self::$base_tpl));
             }
         } elseif ($mobile_phone_themes AND mod_mobile::detect()->isPhone()) {
             /*
              * theme/tpl/layout/file.php -  theme/tpl/index.php
              */
-            $templates = array('tpl/mobile/phone.php', 'tpl/themes/tpl-index.php', 'tpl/layout/tpl-index.php',);
+            $templates = array('tpl/mobile/phone.php', 'tpl/mobile/mobile.php');
             if (self::$base_tpl) {
-                //default themes if not found
-//                array_unshift($templates, sprintf('tpl/layout/tpl-%s.php', self::$base_tpl));
-//                array_unshift($templates, sprintf('tpl/themes/tpl-%s.php', self::$base_tpl));
-                //phone tempalte
-                array_unshift($templates, sprintf('tpl/mobile/tpl-phone-%s.php', self::$base_tpl));
+
+                array_unshift($templates, sprintf('tpl/mobile/phone-%s.php', self::$base_tpl));
             }
         } else {
             /*
+             * go back to the default theme files
              * theme/tpl/layout/file.php -  theme/tpl/index.php
              */
             $templates = array('tpl/themes/tpl-index.php', 'tpl/layout/tpl-index.php', 'tpl/layout/index.php',);
@@ -189,17 +236,6 @@ class bj_layout {
      * @param type $base_dir
      */
     public static function get_template_part($slug = 'content', $name = null, $base_dir = 'views') {
-        //global $post;
-//        if($name == 'hierachy'):
-//        if(is_page()) $name = 'page'. isset($name) ? '-' .$name : '' .$slug ;
-//        if(is_single()) $name = 'single'. isset($name) ? '-' .$name : '' .$slug ;
-//        if(is_archive()) $name = 'archive'. isset($name) ? '-' .$name : '' .$slug ;
-//        endif;
-//        if($prefix == 'post_type'):
-//            $type = $post->post_type;
-//        if(!empty($type))
-//        $name = $type . isset($name) ? '-' .$name : '' .$slug ;
-//        endif;
         get_template_part('tpl/' . $base_dir . '/' . $slug, $name);
     }
 
@@ -226,11 +262,11 @@ class bj_layout {
      * @uses bj_layout::theme_mods('module_name') //automatically locate and find modules from your stylesheet / template directory
      *
      */
-    public static function theme_mods($module = null, $dir = 'modules') {
+    public static function theme_mods($module = null, $base = '', $dir = 'modules') {
         if (isset($module)):
             $locate_mod = bj_layout::locate_tpl($module . '.php', $dir);
             if ($locate_mod) {
-                bj_layout::get_template_part($module, '', $dir);
+                bj_layout::get_template_part($module, $base = '', $dir);
                 return true;
             }
             else
@@ -247,7 +283,7 @@ class bj_layout {
      *
      */
     public static function dropin($module = null, $dir = 'modules') {
-       return bj_layout::theme_mods($module, $dir);
+        return bj_layout::theme_mods($module, $dir);
     }
 
     public static function tpl($tpl = null) {

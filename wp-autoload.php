@@ -68,6 +68,7 @@ class wp_autoload {
         $this->get_path(WP_PLUGIN_DIR . '/al-manager/classes/' . $classname);
         $this->get_path(WP_PLUGIN_DIR . '/' . $classname);
         $this->get_path(WP_CONTENT_DIR . '/themes/' . $classname);
+        $this->get_path(get_template_directory().'/classes/');
 
     }
 

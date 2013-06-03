@@ -124,6 +124,7 @@ class Post_Query {
 
         $factory = new Post_Query();
         return $factory;
+
     }
 
     /**
@@ -133,7 +134,6 @@ class Post_Query {
      */
     public function wp_queries() {
         $query = new WP_Query($this->query);
-        $this->custom_query = $query;
         return $query;
     }
 
@@ -184,6 +184,9 @@ class Post_Query {
      */
     public function loop() {
 
+//        if(!is_admin())
+//        $this->pre_post();
+
         global $query;
 
         if (have_posts()):
@@ -213,14 +216,13 @@ class Post_Query {
         /**
          * built the query using pre_get_post@link URL description
          */
-        if (isset($this->query)):
+        if (isset($this->query))
             add_action('pre_get_posts', array($this, 'pre_get_posts'));
-        endif;
+
     }
 
     public function pre_get_posts($query) {
-        if (!$query->is_main_query())
-            return;
+
         foreach ($this->query as $key => $value):
             $query->set($key, $value);
         endforeach;
@@ -298,5 +300,8 @@ class Post_Query {
         /** now reset post fata */
         wp_reset_postdata();
     }
+
+
+
 
 }

@@ -33,23 +33,23 @@ jQuery(document).ready(function($){
 
         $('body').addClass('screen-xlarge');
 
-    }else if ((width > 1560)){
+    }else if ((width > 1560) && (width <= 1850)){
 
         $('body').addClass('screen-large');
     }
-    else if((width > 1160)){
+    else if((width > 1160) && (width <= 1550)){
 
         $('body').addClass('screen-medium');
     }
-    else if ((width >= 920 )){
+    else if ((width >= 920 ) && (width <= 1150)){
 
         $('body').addClass('screen-default');
 
-    } else if ((width >= 768)){
+    } else if ((width >= 768) && (width <= 900)){
 
         $('body').addClass('tablet-portrait');
 
-    }else if ((width >= 420)){
+    }else if ((width >= 420) && (width <= 760)){
 
         $('body').addClass('tablet-landscape');
 
@@ -63,8 +63,6 @@ jQuery(document).ready(function($){
         $("#info-bar").slideToggle("slow");
         $(this).toggleClass("active");
     })
-
-
 
 })
 

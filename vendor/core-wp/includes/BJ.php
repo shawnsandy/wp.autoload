@@ -11,6 +11,8 @@
  */
 class BJ {
 
+
+
     public function __construct() {
 
     }
@@ -38,7 +40,10 @@ class BJ {
      */
     public static function site_slug() {
         $description = get_bloginfo('description');
-        return $slug = get_theme_mod('bjc_site_slug', $description);
+        $slug = get_theme_mod('site_slug');
+        if(empty($slug))
+            $slug = $description;
+        return $slug ;
     }
 
     public static function footer_info() {
@@ -113,7 +118,7 @@ class BJ {
         else :
             echo "Flickr ID required";
         endif;
-        
+
     }
 
     /**

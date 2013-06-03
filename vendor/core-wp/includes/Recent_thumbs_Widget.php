@@ -113,8 +113,10 @@ class Recent_thumbs_Widget extends WP_Widget {
     function form($instance) {
 
         /* Set up some default widget settings. */
-        $defaults = array('title' => __('Recent Post', 'recent-thumbs-widget'), 'page' => '', 'qty' => 5, 'desc_words' => 10, 'desc' => 'OFF','thumb_size' => 'recent-thumb');
+        $defaults = array('title' => __('Recent Post', 'recent-thumbs-widget'), 'page' => '', 'qty' => 5, 'desc_words' => 10, 'desc' => 'OFF', 'thumb_size' => 'recent-thumb');
         $instance = wp_parse_args((array) $instance, $defaults);
+
+        global $_wp_additional_image_sizes;
         ?>
 
         <!-- Widget Title: Text Input -->
@@ -137,7 +139,8 @@ class Recent_thumbs_Widget extends WP_Widget {
                 $obj = 'objects';
                 $pages = get_post_types($args, $obj);
                 foreach ($pages as $value) {
-                    echo "   <option value=\"{$value->name}\">{$value->name}</option>";
+                    $post_name = ucfirst($value->name);
+                    echo "   <option value=\"{$value->name}\">{$post_name}</option>";
                 }
                 ?>
             </select>
@@ -145,9 +148,19 @@ class Recent_thumbs_Widget extends WP_Widget {
 
         <!-- Your Name: Text Input -->
         <p>
+
+
             <label for="<?php echo $this->get_field_id('thumb_size'); ?>"><?php _e('Thumbnail Size:', 'recent-thumbs-widget'); ?></label>
-            <input id="<?php echo $this->get_field_id('thumb_size'); ?>" name="<?php echo $this->get_field_name('thumb_size'); ?>"
-                   value="<?php echo $instance['thumb_size']; ?>" style="width:90%;"  />
+
+
+            <select id="<?php echo $this->get_field_id('thumb_size'); ?>" name="<?php echo $this->get_field_name('thumb_size'); ?>" style="width:90%;" >
+                <option></option>
+                <?php foreach ($_wp_additional_image_sizes as $size => $size_attrs): ?>
+                    <option value="" <?php selected($size, $instance['thumb_size']); ?>><?php echo $size ?></option>
+                <?php endforeach; ?>
+            </select>
+
+
         </p>
         <p>
             <label for="<?php echo $this->get_field_id('qty'); ?>"><?php _e('Quantity:', 'recent-thumbs-widget'); ?></label>
@@ -172,7 +185,7 @@ class Recent_thumbs_Widget extends WP_Widget {
         <?php
     }
 
-        /*
+    /*
      * Register the widget here in the
      * class requires autoloader / include this file
      */
@@ -182,13 +195,13 @@ class Recent_thumbs_Widget extends WP_Widget {
     }
 
     public function register_bj_mce_editor() {
-         register_widget('Recent_thumbs_Widget');
+        register_widget('Recent_thumbs_Widget');
     }
 
 }
 
 /**
- * 
+ *
  */
 add_image_size('recent-thumb', 80, 80, true);
 add_image_size('recent-thumb-60', 60, 60, true);

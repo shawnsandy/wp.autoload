@@ -45,6 +45,7 @@ class bj_customizer {
 
         // add_action('customize_register', 'themename_customize_register');
         add_action('admin_menu', array($this, 'bj_theme_custom_admin'));
+        
     }
 
     /**
@@ -661,9 +662,4 @@ if (class_exists('WP_Customize_Control')):
 
     }
 
-
-
-
-
 endif;
-
