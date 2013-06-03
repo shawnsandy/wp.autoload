@@ -26,11 +26,9 @@ class BJ_METABOXES {
         $this->metabox_fields = $metabox_fields;
     }
 
-
     public function set_post_types($metabox_post_types) {
         $this->post_types = $metabox_post_types;
     }
-
 
     /**
      * Sets where the metabox is displayed normal/advanced/side
@@ -57,7 +55,6 @@ class BJ_METABOXES {
 //        $this->meta_box = $meta_box;
 //        return $this;
 //    }
-
 //    public function set_field_class($field_class) {
 //        $this->field_class = $field_class;
 //    }
@@ -108,7 +105,7 @@ class BJ_METABOXES {
      * @param type $metabox_title
      * @param type $post_types
      */
-    public function add_metabox($metabox_id,$metabox_title,$post_types = array('post')) {
+    public function add_metabox($metabox_id, $metabox_title, $post_types = array('post')) {
         //setup create the metabox
 
         $meta_box[] = array(
@@ -122,7 +119,6 @@ class BJ_METABOXES {
 
         $this->meta_box = $meta_box;
         $this->metaboxes();
-
     }
 
     /**
@@ -154,10 +150,67 @@ class BJ_METABOXES {
      * @param bool $clone allow copies of this field
      * @return field array
      */
-    public function text_field($id, $name, $desc = '', $clone = false) {
+    public function text_field($id, $name, $desc = '', $default= '', $clone = false) {
         $this->field_type = 'text';
         $this->field_clone = $clone;
+        $this->field_std = $default;
         return $this->field_attributes($id, $name, $desc);
+    }
+
+    /**
+     *
+     * @param string $id metabox id
+     * @param string name/label of metabox field
+     * @param string desc field descriotion
+     * @param bool $clone allow copies of this field
+     * @return field array
+     */
+    public function checkbox_field($id, $name, $desc = '', $std = 0) {
+        $this->field_type = 'checkbox';
+        $this->field_std = $std;
+        return $this->field_attributes($id, $name, $desc);
+    }
+
+    public function text_area($id, $name, $desc = '', $clone = false) {
+        $this->field_type = 'textarea';
+        $this->field_clone = $clone;
+        return $this->field_attributes($id, $name, $desc);
+    }
+
+    public function post_selection($id, $name, $post_type = 'post', $desc = '') {
+        $array = array(
+            'name' => $name,
+            'id' => $id,
+            'type' => 'post',
+            'desc' => $desc,
+            'std' => $this->field_std,
+            'class' => $this->field_class,
+            // Post type
+            'post_type' => $post_type,
+            // Field type, either 'select' or 'select_advanced' (default)
+            'field_type' => 'select',
+            // Query arguments (optional). No settings means get all published posts
+            'query_args' => array(
+                'post_status' => 'publish',
+                'posts_per_page' => '-1',
+            )
+        );
+
+        return $array;
+    }
+
+    public function posts() {
+        $field = array(
+            'name' => 'Posts (Pages)',
+            'id' => "_pages",
+            'type' => 'post',
+            // Post type
+            'post_type' => 'page',
+            // Field type, either 'select' or 'select_advanced' (default)
+            'field_type' => 'select',
+
+        );
+        return $field;
     }
 
 }

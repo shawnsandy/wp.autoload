@@ -9,7 +9,7 @@
  *
  * @author studio
  */
-class FN_Gen {
+class Fn_Gen {
 
     private $image_quality = 100,
             $excerpt_lenght = 40,
@@ -115,6 +115,7 @@ class Fn_Images extends Fn_Gen {
     public static function image_figure() {
 
         add_filter('the_content', array("Fn_Images",'fb_unautop_4_img'), 99);
+
     }
 
     // unautop for images
